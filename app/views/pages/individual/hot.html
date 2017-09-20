@@ -17,6 +17,15 @@
 
 <body>
 <h>请输入加热炉数据</h>
+<br/>
+当前时间：
+<hr>
+<div id="time">
+<script>
+document.getElementById('time').innerHTML=new Date().toLocaleString();
+setInterval("document.getElementById('time').innerHTML=new Date().toLocaleString();",1000);
+</script>
+</div>
 <div class="col-sm-4 blog-main">
 
   <form class="form-horizontal" role='form' data-toggle='validator' method='post' action='/individual/hot'>
@@ -29,8 +38,8 @@
     </tr>
     <tr>
       <td>时间：</td>
-      <td><input type="date" name="now_date" id="now_date" placeholder="请输入：年/月/日"/>
-    <!--  <input type="time" name="new_time" id="now_time" placeholder="请输入：时/分"/> -->
+      <td><input type="datetime-local" name="now_date" id="now_date" />
+      <!-- <input type="time" name="new_time" id="now_time" placeholder="请输入：时/分"/> -->
       <script src="jquery-2.0.3.min.js"></script>
       <script>
           //初始化时间控件
@@ -43,11 +52,12 @@
           var now_hour = now.getHours()<10?"0"+now.getHours():now.getHours() ; //时
           var nowMinute = now.getMinutes()<10?"0"+now.getMinutes():now.getMinutes() ; //分
 
-          var now_date = now_year+"-"+now_month+"-"+now_day ;
+          var now_date = now_year+"-"+now_month+"-"+now_day+" "+now_hour+":"+now_minute;
           var now_time = now_hour+":"+now_minute;
 
-          $("#now_date").val(now_date) ;
           $("#nowTime").val(now_time) ;
+          $("#now_date").val(now_date) ;
+
       </script>
 
 
