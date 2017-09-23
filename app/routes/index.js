@@ -20,7 +20,10 @@ router
   //个人--操作人员
   // .get('/individual/hot', Individual.hot)//hot界面
   .post('/individual/hot',Individual.ctlHot) //处理hot界面数据
+  .post('/individual/cuihuo1',Individual.ctlcuihuo1) //处理cuihuo数据添加
   .get('/individual/main_hot', Individual.main_hot)   //个人主页面
+  .get('/individual/cuiguan', Individual.cuiguan)   //数据管理页面跳转
+  .get('/individual/cuijia', Individual.cuijia) //数据添加界面
   //个人用户路由——操作人员
   .get('/individual/main_cuihuo', Individual.main_cuihuo) //日程管理
   .get('/individual/main_huihuo', Individual.main_huihuo) //项目

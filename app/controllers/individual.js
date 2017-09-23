@@ -361,3 +361,51 @@ exports.his_lengque = async function(ctx, next){
    })
   }
 }
+//淬火数据添加
+exports.ctlcuihuo1 = async function(ctx, next){
+
+  //判断用户是否登录
+  if(!ctx.session.user) {
+    await ctx.render('pages/user/login', {
+      title: '用户登录',
+      info: ''
+    });
+  } else {
+    await ctx.render('pages/individual/cuihuo1', {   //默认后缀名为html
+     title: '个人信息',
+     user: ctx.session.user
+   })
+  }
+}
+//淬火——数据管理
+exports.cuiguan = async function(ctx, next){
+
+  //判断用户是否登录
+  if(!ctx.session.user) {
+    await ctx.render('pages/user/login', {
+      title: '用户登录',
+      info: ''
+    });
+  } else {
+    await ctx.render('pages/individual/cuiguan', {   //默认后缀名为html
+     title: '个人信息',
+     user: ctx.session.user
+   })
+  }
+}
+//淬火——数据添加
+exports.cuijia = async function(ctx, next){
+
+  //判断用户是否登录
+  if(!ctx.session.user) {
+    await ctx.render('pages/user/login', {
+      title: '用户登录',
+      info: ''
+    });
+  } else {
+    await ctx.render('pages/individual/cuijia', {   //默认后缀名为html
+     title: '个人信息',
+     user: ctx.session.user
+   })
+  }
+}

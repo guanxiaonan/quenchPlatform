@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>加热炉数据管理平台</title>
+  <meta charset=utf-8>
+  <style type="text/css">
+  table{
+    width: 1000px;
+  column-span: 10;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    align:middle;
+    padding: 10px
+
+
+  }
+  </style>
+</head>
+<script>
+function checkForm()
+{
+  alert("提交表单");
+}
+</script>
+<body>
+  <form name="form1"method="post"action="/individual/cuihuo1/">
+    <table border="1">
+
+      <tr>
+        <td colspan="10" width="1000" height="100" align="middle">
+          <span style="font-size:30pt">加热炉数据管理平台</span></td>
+      </tr>
+      <tr width="100%" height="60">
+        <td width="20%" align="middle"><a href="/individual/cuiguan/">数据管理</a></td>
+        <td align="middle" >时间：</td>
+        <td align="middle" ><input type="datetime-local" name="now_date" id="now_date"size="9"placeholder="请输入：年/月/日"/>
+      <!--  <input type="time" name="new_time" id="now_time" placeholder="请输入：时/分"/> -->
+
+
+        <td width="20%" align="middle" >项目号</td>
+        <td width="20%" align="middle"><input type="text"size="9"id="xiangmuhao" name="xiangmuhao"></td>
+
+
+        </tr>
+      <tr width="1000"height="60">
+        <td width="20%"align="middle"><a href="/individual/hotshi/">历史记录</td>
+
+          <td width="20%" align="middle">操作人员</td>
+          <td width="20%" align="middle"><input type="text"size="9"id="caozuo" name="caozuo"></td>
+          <td width="20%" align="middle">联系方式</td>
+          <td width="20%" align="middle"><input type="text"size="9"id="phone" name="phone"></td>
+      </tr>
+       <tr width="1000"height="60"><td rowspan="4">
+         <td align="middle">材料</td>
+         <td width="20%" align="middle"> <input type="text"size="9"id="cailiao" name="cailiao"></td>
+         <td align="middle">湿度</td>
+         <td width="20%" align="middle"> <input type="text"size="9"id="shidu"name="shidu"></td>
+      </tr>
+       <tr width="1000"height="60">
+         <td align="middle">压力</td>
+         <td width="10%" align="middle"><input type="text"size="9"id="yali"name="yali"></td>
+         <td align="middle">温度</td>
+         <td width="20%" align="middle"><input type="text"size="9"id="temperature"name="temperature"></td>
+       </tr>
+
+       <tr width="1000"height="60"></tr>
+       <tr width="1000"height="60">
+         <form action="demo_form.php" onsubmit="checkForm()">
+        <td style colspan="9"align="middle"><input type="submit"value="提交"></td>
+        </form>
+
+      </tr>
+    </body>
+
+  </html>
