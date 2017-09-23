@@ -178,7 +178,6 @@ exports.achievement = async function(ctx, next){
 }
 //hot
 exports.hot = async function(ctx, next){
-
   //console.log(ctx.query)
   //判断用户是否登录
   if(!ctx.session.user) {
@@ -199,10 +198,10 @@ exports.ctlHot = async function(ctx, next){
 
   //console.log(ctx.request.body);   //在终端打印出数据
   let hot_data = ctx.request.body;   //获取页面传输的数据 将数据传输给 hot_data
-  let chaxun = await knex.column('time', 'temperature', 'humidity','pressure').select().from('jiare'); //冲数据库中提取数据
-  //console.log(chaxun);
+  let result_data = await knex.column('id','time', 'temperature', 'humidity','pressure').select().from('jiare'); //冲数据库中提取数据
+  // console.log(result_data);
   let result = await Individual.insert(hot_data);
-  console.log(result);
+  //console.log(result);
   if(result === 'dateIsNull'){
     await ctx.render('pages/individual/hot', {
       title: '加热炉输入数据',
@@ -224,14 +223,14 @@ exports.ctlHot = async function(ctx, next){
     info: '未输入压强，请输入！'
   });
 }else if(result === 'success') {        //输入成功
-  console.log(hot_data)
+  //console.log(result_data)
   await ctx.render('pages/individual/his_hot', {
     title: '查看数据',
-    time: '2017/7/12',
+    time: hot_data.time,
     temperature: hot_data.temperature,
     humidity: hot_data.humidity,
     pressure: hot_data.pressure,
-    shuju:chaxun
+    result:result_data
 
   })
 } else {
@@ -293,7 +292,7 @@ exports.lengque = async function(ctx, next){
 
 //show_his_hot
 exports.show_his_hot = async function(ctx, next){
-
+let result_data = await knex.column('id','time', 'temperature', 'humidity','pressure').select().from('jiare'); //冲数据库中提取数据
   //判断用户是否登录
   if(!ctx.session.user) {
     await ctx.render('pages/user/login', {
@@ -307,7 +306,7 @@ exports.show_his_hot = async function(ctx, next){
      temperature:'',
      humidity:'',
      pressure:'',
-     shuju:''
+     result:result_data
    })
   }
 }

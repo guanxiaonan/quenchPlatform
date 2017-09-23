@@ -6,8 +6,10 @@
 <h>请输入加热炉数据</h>
   <h2 class="sub-header">加热炉数据</h2>
 <div class="table-responsive">
-  <table border="1px" class="table table-striped">
+  <table border="1px" align="center">
+    <caption>当前添加数据</caption>
     <thead>
+  <body>
       <tr>
         <th>时间</th>
         <th>温度</th>
@@ -22,116 +24,73 @@
         <td><%- temperature %></td>
         <td><%- humidity %></td>
         <td><%- pressure %></td>
-        <td>sit</td>
       </tr>
-      <tr>
-        <td>1,002</td>
-        <td>amet</td>
-        <td>consectetur</td>
-        <td>adipiscing</td>
-        <td>elit</td>
-      </tr>
-      <tr>
-        <td>1,003</td>
-        <td>Integer</td>
-        <td>nec</td>
-        <td>odio</td>
-        <td>Praesent</td>
-      </tr>
-      <tr>
-        <td>1,003</td>
-        <td>libero</td>
-        <td>Sed</td>
-        <td>cursus</td>
-        <td>ante</td>
-      </tr>
-      <tr>
-        <td>1,004</td>
-        <td>dapibus</td>
-        <td>diam</td>
-        <td>Sed</td>
-        <td>nisi</td>
-      </tr>
-      <tr>
-        <td>1,005</td>
-        <td>Nulla</td>
-        <td>quis</td>
-        <td>sem</td>
-        <td>at</td>
-      </tr>
-      <tr>
-        <td>1,006</td>
-        <td>nibh</td>
-        <td>elementum</td>
-        <td>imperdiet</td>
-        <td>Duis</td>
-      </tr>
-      <tr>
-        <td>1,007</td>
-        <td>sagittis</td>
-        <td>ipsum</td>
-        <td>Praesent</td>
-        <td>mauris</td>
-      </tr>
-      <tr>
-        <td>1,008</td>
-        <td>Fusce</td>
-        <td>nec</td>
-        <td>tellus</td>
-        <td>sed</td>
-      </tr>
-      <tr>
-        <td>1,009</td>
-        <td>augue</td>
-        <td>semper</td>
-        <td>porta</td>
-        <td>Mauris</td>
-      </tr>
-      <tr>
-        <td>1,010</td>
-        <td>massa</td>
-        <td>Vestibulum</td>
-        <td>lacinia</td>
-        <td>arcu</td>
-      </tr>
-      <tr>
-        <td>1,011</td>
-        <td>eget</td>
-        <td>nulla</td>
-        <td>Class</td>
-        <td>aptent</td>
-      </tr>
-      <tr>
-        <td>1,012</td>
-        <td>taciti</td>
-        <td>sociosqu</td>
-        <td>ad</td>
-        <td>litora</td>
-      </tr>
-      <tr>
-        <td>1,013</td>
-        <td>torquent</td>
-        <td>per</td>
-        <td>conubia</td>
-        <td>nostra</td>
-      </tr>
-      <tr>
-        <td>1,014</td>
-        <td>per</td>
-        <td>inceptos</td>
-        <td>himenaeos</td>
-        <td>Curabitur</td>
-      </tr>
-      <tr>
-        <td>1,015</td>
-        <td>sodales</td>
-        <td>ligula</td>
-        <td>in</td>
-        <td>libero</td>
-      </tr>
+
     </tbody>
   </table>
+<br/>
+  <!-- <table border="1px" class="table table-striped">
+      <tr>
+          <th>时间</th>
+          <th>温度</th>
+          <th>湿度</th>
+          <th>压强</th>
+          <th>班级名</th>
+          <th>操作</th>
+      </tr> -->
+      <!--视图里面包含一个Model属性，可以通过Action方法中的View方法来赋值-->
+      <!-- @foreach (Student stu in Model)
+      { -->
+      <!-- <tr>
+          <td>@stu.s_ID</td>
+          <td>@stu.s_Name</td>
+          <td>@stu.s_Sex</td>
+          <td>@stu.s_Age</td>
+          <td>@stu.Classes.c_Name</td>
+          <!-传参数-->
+          <!-- <td>@Html.ActionLink("修改", "Modify", new { id=@stu.s_ID})@Html.ActionLink("删除", "Delete", new { id=@stu.s_ID})@Html.ActionLink("增加", "Add")</td> -->
+
+      <!-- </tr>  -->
+      <!-- } -->
+</table>
+<center><table border="1px" style="border:dotted;border-color:#F06">
+<caption>数据</caption>
+<tr>
+  <!-- <th>编号</th> -->
+  <th>编号</th>
+  <th>时间</th>
+  <th>温度</th>
+  <th>湿度</th>
+  <th>压强</th>
+</tr>
+
+<% for(var i=0; i<result.length;i++){%>
+<tr>
+    <td><%= result[i].id %></td>
+    <td><%= result[i].time.getFullYear() + '-' + (result[i].time.getMonth() + 1) + '-' + result[i].time.getDate() + ' ' + result[i].time.getHours() + ':' + result[i].time.getMinutes() + ':' + result[i].time.getSeconds() %></td>
+    <td><%= result[i].temperature %></td>
+    <td><%= result[i].humidity%></td>
+    <td><%= result[i].pressure %></td>
+</tr>
+<%}%>
+<!-- <?php
+$link=mysql_connect('localhost','root','123')or die("数据库连接失败");
+//连接数据库
+mysql_select_db('manage_platform',$link);//选择数据库
+mysql_query("set names utf8");//设置编码格式
+
+$q="select * from jiare";//设置查询指令
+$result=mysql_query($q);//执行查询
+while($row=mysql_fetch_assoc($result))//将result结果集中查询结果取出一条
+{
+ echo"<tr><td>".$row["id"]."</td><td>".$row["time"]."</td><td>".$row["humidity"]."</td><td>".$row["pressure"]."</td><td>".$row["lastdate"]."</td><tr>";
+}
+?> -->
+</table>
+</center>
 </div>
 </div>
 </div>
 </div>
+</body>
+</html>
