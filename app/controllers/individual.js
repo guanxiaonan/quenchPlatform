@@ -252,6 +252,7 @@ exports.cuihuo = async function(ctx, next){
   } else {
     await ctx.render('pages/individual/cuihuo', {   //默认后缀名为html
      title: '个人信息',
+     info:'',
      user: ctx.session.user
    })
   }
@@ -268,6 +269,7 @@ exports.huihuo = async function(ctx, next){
   } else {
     await ctx.render('pages/individual/huihuo', {   //默认后缀名为html
      title: '个人信息',
+     info:'',
      user: ctx.session.user
    })
   }
@@ -284,6 +286,7 @@ exports.lengque = async function(ctx, next){
   } else {
     await ctx.render('pages/individual/lengque', {   //默认后缀名为html
      title: '个人信息',
+     info:'',
      user: ctx.session.user
    })
   }
