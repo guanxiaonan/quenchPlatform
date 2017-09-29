@@ -188,7 +188,8 @@ exports.hot = async function(ctx, next){
   } else {
     await ctx.render('pages/individual/hot', {   //默认后缀名为html
      title: '加热炉输入数据',
-     info:''
+     info:'',
+     user: ctx.session.user
    })
   }
 }
@@ -226,7 +227,7 @@ exports.ctlHot = async function(ctx, next){
   //console.log(result_data)
   await ctx.render('pages/individual/his_hot', {
     title: '查看数据',
-    time: hot_data.time,
+    time_show: hot_data.now_date,
     temperature: hot_data.temperature,
     humidity: hot_data.humidity,
     pressure: hot_data.pressure,
@@ -305,7 +306,7 @@ let result_data = await knex.column('id','time', 'temperature', 'humidity','pres
   } else {
     await ctx.render('pages/individual/his_hot', {   //默认后缀名为html
      title: '数据历史查询',
-     time:'',
+     time_show:'',
      temperature:'',
      humidity:'',
      pressure:'',

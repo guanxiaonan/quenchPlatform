@@ -15,7 +15,14 @@ export default class Individual{
   static async insert(ctx, next) {
     // 判断数据输入
     let new_data = ctx;
-    //console.log(new_data)
+    // console.log('时间')
+    // console.log(typeof new_data.now_date)
+    // console.log('温度')
+    // console.log(typeof new_data.temperature)
+    // console.log('湿度')
+    // console.log(typeof new_data.humidity)
+    // console.log('压强')
+    // console.log(typeof new_data.pressure)
     //输入数据的代码
     if(new_data.now_date !== ''){
       if(new_data.temperature !== ''){
